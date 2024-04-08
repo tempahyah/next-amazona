@@ -3,7 +3,7 @@ import data from '@/lib/data'
 import productService from '@/lib/services/productService'
 import Image from 'next/image'
 import Link from 'next/link'
-// import convertDocToObj from '../../../../lib/utils'
+import { Rating } from '@/components/products/Rating'
 import { convertDocToObj } from '@/lib/utils'
 
 export async function generateMetadata({
@@ -56,7 +56,10 @@ export default async function ProductDetails({
             </li>
 
             <li>
-              {product.rating} of {product.numReviews} reviews
+              <Rating
+                value={product.rating}
+                caption={`${product.numReviews} ratings`}
+              />
             </li>
 
             <li>{product.brand}</li>
